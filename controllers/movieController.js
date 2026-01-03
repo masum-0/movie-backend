@@ -72,13 +72,6 @@ export const getMovies = async (req, res) => {
   });
 };
 
-export const getMovieById = async (req, res) => {
-  const movie = await Movie.findById(req.params.id);
-  if (!movie) return res.status(404).json({ message: "Movie not found" });
-  res.json(movie);
-};
-
-
 export const updateMovies = async (req, res) => {
   try {
     const { movieId } = req.params
