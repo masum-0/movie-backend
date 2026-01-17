@@ -2,7 +2,7 @@ import express from "express"
 import mongoose from "mongoose"
 import dotenv from "dotenv"
 import cookieParser from "cookie-parser"
-import authRoutes from "./routes/authRoutes.js"
+import authRoutes from "./routes/auth&userRoutes.js"
 import movieRoutes from "./routes/movieRoutes.js"
 
 dotenv.config()

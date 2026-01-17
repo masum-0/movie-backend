@@ -25,7 +25,6 @@ export const getUsers = async (req, res) => {
     const skip = (page - 1) * limit;
 
     const users = await User.find(query).select("-password").skip(skip).limit(Number(limit))
-    res.status(200).json(users)
 
     const total = await User.countDocuments(query);
 
