@@ -12,7 +12,17 @@ const generateToken=(userId)=>{
 
 export const getUsers = async (req, res) => {
   try {
-    const users = await User.find({}).select("-password")
+    const { username, role } = req.query
+
+    const query = {}
+
+    if (username) {
+      query.username = { $regex: username, $options: "i" }
+    }
+
+    if (role) query.role = role
+
+    const users = await User.find(query).select("-password")
     res.status(200).json(users)
   } catch (error) {
     res.status(500).json({ message: error.message })
